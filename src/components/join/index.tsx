@@ -32,6 +32,8 @@ const Join = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleClickColab = () => {};
   return (
     <>
       <Box
@@ -73,7 +75,7 @@ const Join = () => {
                   Demo Results!
                 </Typography>
               </Button>
-              <Button variant="outlined">
+              <Button variant="outlined" onClick={handleClickColab}>
                 <Typography>Collab!</Typography>
               </Button>
             </Box>
