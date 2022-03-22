@@ -71,11 +71,34 @@ const Results = () => {
     setErrors(newErrors);
     return flag;
   };
+
+  const fetchData = () => {
+    const data = {
+      smile: values.smile,
+      chembal: values.chembal,
+      assay: values.assay,
+      algo: values.algo,
+    };
+    fetch("http://localhost:5000/predict", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setResult(data);
+      })
+      .catch((error) => {
+        setResult("Sorry We couldn't predict result for these values!");
+      });
+  };
   const getResults = () => {
     if (validate()) {
-      setResult("3.5");
+      fetchData();
     } else {
-      console.log("NO");
+      console.log("ERROR");
     }
   };
 
