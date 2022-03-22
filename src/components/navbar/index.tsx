@@ -10,7 +10,7 @@ import Menu from "@mui/material/Menu";
 import { makeStyles } from "@mui/styles";
 import { theme } from "../../theme";
 
-import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   menuIcon: {
@@ -34,23 +34,33 @@ const Navbar = () => {
     <Box margin={0} padding={0} sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar style={{ padding: "0", margin: "0" }}>
-          <Typography variant="caption" sx={{ flexGrow: 1 }}>
-            FL.
-          </Typography>
+          <Box sx={{ flexGrow: 1 }}>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Typography variant="h6">FL.</Typography>
+            </Link>
+          </Box>
           <Box
             justifyContent="center"
             sx={{ display: { md: "flex", xs: "none" } }}
           >
-            <Typography variant="body1" style={{ marginRight: "16px" }}>
-              Home
-            </Typography>
-            <Typography variant="body1" style={{ marginRight: "16px" }}>
-              About
-            </Typography>
-            <Typography variant="body1" style={{ marginRight: "16px" }}>
-              Background
-            </Typography>
-            <Typography variant="body1">Join</Typography>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Typography variant="body1" style={{ marginRight: "16px" }}>
+                Home
+              </Typography>
+            </Link>
+            <Link to={"/about-me"} style={{ textDecoration: "none" }}>
+              <Typography variant="body1" style={{ marginRight: "16px" }}>
+                About
+              </Typography>
+            </Link>
+            <Link to={"/federated-learning"} style={{ textDecoration: "none" }}>
+              <Typography variant="body1" style={{ marginRight: "16px" }}>
+                Background
+              </Typography>
+            </Link>
+            <Link to={"/join-us"} style={{ textDecoration: "none" }}>
+              <Typography variant="body1">Join</Typography>
+            </Link>
           </Box>
           <Box
             className={classes.menuIcon}
@@ -85,10 +95,13 @@ const Navbar = () => {
                 <Typography variant="body1">Home</Typography>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Typography variant="body1">Try Helper</Typography>
+                <Typography variant="body1">About Me</Typography>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Typography variant="body1">About Us</Typography>
+                <Typography variant="body1">Background</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Typography variant="body1">Join</Typography>
               </MenuItem>
             </Menu>
           </Box>
