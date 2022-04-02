@@ -2,6 +2,7 @@ import { Box, Typography, Divider, IconButton, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import React from "react";
+import Helmet from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +37,10 @@ const Join = () => {
   const handleClickColab = () => {};
   return (
     <>
+      <Helmet>
+        <title>FL - Join Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
       <Box
         display="flex"
         marginTop="130px"

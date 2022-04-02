@@ -10,6 +10,7 @@ import {
 import { makeStyles } from "@mui/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import React from "react";
+import Helmet from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -115,6 +116,10 @@ const Results = () => {
   console.log(values);
   return (
     <>
+      <Helmet>
+        <title>FL - Results</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
       <Box
         display="flex"
         marginTop="130px"
