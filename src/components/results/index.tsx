@@ -42,15 +42,19 @@ const Results = () => {
   const [values, setValues] = React.useState({
     smile: "",
     chembal: "",
-    assay: "",
+    // assay: "",
     algo: "",
+    assay_type: "",
+    target_family: "",
   });
 
   const [errors, setErrors] = React.useState({
     smile: false,
     chembal: false,
-    assay: false,
+    // assay: false,
     algo: false,
+    assay_type: false,
+    target_family: false,
   });
 
   const handleInput = (key) => (event) => {
@@ -76,8 +80,10 @@ const Results = () => {
     const data = {
       smile: values.smile,
       chembal: values.chembal,
-      assay: values.assay,
+      // assay: values.assay,
       algo: values.algo,
+      assay_type: values.assay_type,
+      target_family: values.target_family,
     };
     fetch("http://localhost:5000/predict", {
       method: "POST", // or 'PUT'
@@ -88,7 +94,7 @@ const Results = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setResult(data);
+        setResult(data["result"]);
       })
       .catch((error) => {
         setResult("Sorry We couldn't predict result for these values!");
@@ -106,7 +112,7 @@ const Results = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log("values: ", values);
+  console.log(values);
   return (
     <>
       <Box
@@ -199,7 +205,7 @@ const Results = () => {
             />
           </Box>
         </Box>
-        <Box
+        {/* <Box
           display="flex"
           mt={4}
           sx={{ flexDirection: { xs: "column", md: "row" } }}
@@ -223,6 +229,89 @@ const Results = () => {
               placeholder="Enter SMILE String"
               // className={classes.textfields}
             />
+          </Box>
+        </Box> */}
+        <Box
+          display="flex"
+          mt={6}
+          sx={{ flexDirection: { xs: "column", md: "row" } }}
+        >
+          <Box
+            mr={4}
+            minWidth="200px"
+            sx={{ marginBottom: { xs: "25px", md: 0 } }}
+          >
+            <Typography variant="subtitle2">Assay Type</Typography>
+          </Box>
+          <Box flexGrow={1}>
+            <TextField
+              style={{ color: "grey" }}
+              fullWidth
+              select
+              label={"Choose a Assay Type"}
+              variant="outlined"
+              value={values.assay_type}
+              error={errors.assay_type}
+              helperText={errors.assay_type ? "Required Field" : ""}
+              onChange={handleInput("assay_type")}
+              InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+            >
+              <MenuItem key={"B"} value={"B"}>
+                B
+              </MenuItem>
+              <MenuItem key={"F"} value={"F"}>
+                F
+              </MenuItem>
+              <MenuItem key={"A"} value={"A"}>
+                A
+              </MenuItem>
+              <MenuItem key={"T"} value={"T"}>
+                T
+              </MenuItem>
+            </TextField>
+          </Box>
+        </Box>
+        <Box
+          display="flex"
+          mt={6}
+          sx={{ flexDirection: { xs: "column", md: "row" } }}
+        >
+          <Box
+            mr={4}
+            minWidth="200px"
+            sx={{ marginBottom: { xs: "25px", md: 0 } }}
+          >
+            <Typography variant="subtitle2">Target Family</Typography>
+          </Box>
+          <Box flexGrow={1}>
+            <TextField
+              style={{ color: "grey" }}
+              fullWidth
+              select
+              label={"Choose a Target Family"}
+              variant="outlined"
+              value={values.target_family}
+              error={errors.target_family}
+              helperText={errors.target_family ? "Required Field" : ""}
+              onChange={handleInput("target_family")}
+              InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+            >
+              <MenuItem key={"phenotypic"} value={"phenotypic"}>
+                Phenotypic
+              </MenuItem>
+              <MenuItem key={"gpcr"} value={"gpcr"}>
+                GPCR
+              </MenuItem>
+              <MenuItem key={"kinase"} value={"kinase"}>
+                Kinase
+              </MenuItem>
+              <MenuItem key={"proteinase"} value={"proteinase"}>
+                Proteinase
+              </MenuItem>
+              <MenuItem key={"nhr"} value={"nhr"}>
+                NHR
+              </MenuItem>
+            </TextField>
           </Box>
         </Box>
         <Box
@@ -255,6 +344,9 @@ const Results = () => {
               </MenuItem>
               <MenuItem key={"sgd"} value={"sgd"}>
                 Federated SGD
+              </MenuItem>
+              <MenuItem key={"prox"} value={"prox"}>
+                Federated Prox
               </MenuItem>
             </TextField>
           </Box>
