@@ -8,7 +8,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { makeStyles } from "@mui/styles";
-import { theme } from "../../theme";
 
 import { Link } from "react-router-dom";
 
