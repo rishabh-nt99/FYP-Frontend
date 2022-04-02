@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import React from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Card from "./card";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   downArrow: {
@@ -20,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
   const classes = useStyles();
+
+  let navigate = useNavigate();
+  const changeRoute = () => {
+    let path = "./join-us";
+    navigate(path);
+  };
 
   return (
     <>
@@ -48,7 +55,7 @@ const Home = () => {
         </Box>
       </Box>
       <Box marginTop={4} textAlign="right">
-        <Button variant="outlined">
+        <Button variant="outlined" onClick={changeRoute}>
           <Typography>Join Us</Typography>
         </Button>
       </Box>
