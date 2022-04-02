@@ -4,7 +4,7 @@ import React from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Card from "./card";
 import { useNavigate } from "react-router-dom";
-
+import Helmet from "react-helmet";
 const useStyles = makeStyles((theme) => ({
   downArrow: {
     "& svg": {
@@ -30,6 +30,10 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>FYP Project - Rishabh Nautiyal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
       <Box
         display="flex"
         marginTop="150px"
