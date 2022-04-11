@@ -113,7 +113,6 @@ const Results = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log(values);
   return (
     <>
       <Helmet>
@@ -135,7 +134,7 @@ const Results = () => {
             maxWidth: { xs: "100%", md: "600px" },
           }}
         >
-          <Typography variant="h2">
+          <Typography variant="h2" data-testid="heading">
             Checkout Current Model Predictions!
           </Typography>
           <Typography variant="h4" style={{ marginTop: "50px" }}>
@@ -162,198 +161,175 @@ const Results = () => {
         </Box>
       </Box>
       <Box mt="100px">
-        <Box display="flex" sx={{ flexDirection: { xs: "column", md: "row" } }}>
+        <Box data-testid="inputParams">
           <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "10px", md: 0 } }}
+            display="flex"
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
           >
-            <Typography variant="subtitle2">Chembal ID</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              value={values.chembal}
-              error={errors.chembal}
-              helperText={errors.chembal ? "Required Field" : ""}
-              onChange={handleInput("chembal")}
-              InputLabelProps={{ shrink: true }}
-              placeholder="Enter  ID"
-              // className={classes.textfields}
-            />
-          </Box>
-        </Box>
-        <Box
-          display="flex"
-          mt={4}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
-          <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "10px", md: 0 } }}
-          >
-            <Typography variant="subtitle2">Smile String</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              value={values.smile}
-              error={errors.smile}
-              helperText={errors.smile ? "Required Field" : ""}
-              onChange={handleInput("smile")}
-              InputLabelProps={{ shrink: true }}
-              placeholder="Enter SMILE String"
-              // className={classes.textfields}
-            />
-          </Box>
-        </Box>
-        {/* <Box
-          display="flex"
-          mt={4}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
-          <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "10px", md: 0 } }}
-          >
-            <Typography variant="subtitle2">Assay ID</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              value={values.assay}
-              error={errors.assay}
-              helperText={errors.assay ? "Required Field" : ""}
-              onChange={handleInput("assay")}
-              InputLabelProps={{ shrink: true }}
-              placeholder="Enter SMILE String"
-              // className={classes.textfields}
-            />
-          </Box>
-        </Box> */}
-        <Box
-          display="flex"
-          mt={6}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
-          <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "25px", md: 0 } }}
-          >
-            <Typography variant="subtitle2">Assay Type</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              style={{ color: "grey" }}
-              fullWidth
-              select
-              label={"Choose a Assay Type"}
-              variant="outlined"
-              value={values.assay_type}
-              error={errors.assay_type}
-              helperText={errors.assay_type ? "Required Field" : ""}
-              onChange={handleInput("assay_type")}
-              InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+            <Box
+              mr={4}
+              minWidth="200px"
+              sx={{ marginBottom: { xs: "10px", md: 0 } }}
             >
-              <MenuItem key={"B"} value={"B"}>
-                B
-              </MenuItem>
-              <MenuItem key={"F"} value={"F"}>
-                F
-              </MenuItem>
-              <MenuItem key={"A"} value={"A"}>
-                A
-              </MenuItem>
-              <MenuItem key={"T"} value={"T"}>
-                T
-              </MenuItem>
-            </TextField>
+              <Typography variant="subtitle2">Chembal ID</Typography>
+            </Box>
+            <Box flexGrow={1}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                value={values.chembal}
+                error={errors.chembal}
+                helperText={errors.chembal ? "Required Field" : ""}
+                onChange={handleInput("chembal")}
+                InputLabelProps={{ shrink: true }}
+                placeholder="Enter  ID"
+              />
+            </Box>
           </Box>
-        </Box>
-        <Box
-          display="flex"
-          mt={6}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
           <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "25px", md: 0 } }}
+            display="flex"
+            mt={4}
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
           >
-            <Typography variant="subtitle2">Target Family</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              style={{ color: "grey" }}
-              fullWidth
-              select
-              label={"Choose a Target Family"}
-              variant="outlined"
-              value={values.target_family}
-              error={errors.target_family}
-              helperText={errors.target_family ? "Required Field" : ""}
-              onChange={handleInput("target_family")}
-              InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+            <Box
+              mr={4}
+              minWidth="200px"
+              sx={{ marginBottom: { xs: "10px", md: 0 } }}
             >
-              <MenuItem key={"phenotypic"} value={"phenotypic"}>
-                Phenotypic
-              </MenuItem>
-              <MenuItem key={"gpcr"} value={"gpcr"}>
-                GPCR
-              </MenuItem>
-              <MenuItem key={"kinase"} value={"kinase"}>
-                Kinase
-              </MenuItem>
-              <MenuItem key={"proteinase"} value={"proteinase"}>
-                Proteinase
-              </MenuItem>
-              <MenuItem key={"nhr"} value={"nhr"}>
-                NHR
-              </MenuItem>
-            </TextField>
+              <Typography variant="subtitle2">Smile String</Typography>
+            </Box>
+            <Box flexGrow={1}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                value={values.smile}
+                error={errors.smile}
+                helperText={errors.smile ? "Required Field" : ""}
+                onChange={handleInput("smile")}
+                InputLabelProps={{ shrink: true }}
+                placeholder="Enter SMILE String"
+              />
+            </Box>
           </Box>
-        </Box>
-        <Box
-          display="flex"
-          mt={6}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
           <Box
-            mr={4}
-            minWidth="200px"
-            sx={{ marginBottom: { xs: "25px", md: 0 } }}
+            display="flex"
+            mt={6}
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
           >
-            <Typography variant="subtitle2">Alogrithm</Typography>
-          </Box>
-          <Box flexGrow={1}>
-            <TextField
-              style={{ color: "grey" }}
-              fullWidth
-              select
-              label={"Choose a Federated Algorithm"}
-              variant="outlined"
-              value={values.algo}
-              error={errors.algo}
-              helperText={errors.algo ? "Required Field" : ""}
-              onChange={handleInput("algo")}
-              InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+            <Box
+              mr={4}
+              minWidth="200px"
+              sx={{ marginBottom: { xs: "25px", md: 0 } }}
             >
-              <MenuItem key={"avg"} value={"avg"}>
-                Federated Average
-              </MenuItem>
-              <MenuItem key={"sgd"} value={"sgd"}>
-                Federated SGD
-              </MenuItem>
-              <MenuItem key={"prox"} value={"prox"}>
-                Federated Prox
-              </MenuItem>
-            </TextField>
+              <Typography variant="subtitle2">Assay Type</Typography>
+            </Box>
+            <Box flexGrow={1}>
+              <TextField
+                style={{ color: "grey" }}
+                fullWidth
+                select
+                label={"Choose a Assay Type"}
+                variant="outlined"
+                value={values.assay_type}
+                error={errors.assay_type}
+                helperText={errors.assay_type ? "Required Field" : ""}
+                onChange={handleInput("assay_type")}
+                InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+              >
+                <MenuItem key={"B"} value={"B"}>
+                  B
+                </MenuItem>
+                <MenuItem key={"F"} value={"F"}>
+                  F
+                </MenuItem>
+                <MenuItem key={"A"} value={"A"}>
+                  A
+                </MenuItem>
+                <MenuItem key={"T"} value={"T"}>
+                  T
+                </MenuItem>
+              </TextField>
+            </Box>
+          </Box>
+          <Box
+            display="flex"
+            mt={6}
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
+          >
+            <Box
+              mr={4}
+              minWidth="200px"
+              sx={{ marginBottom: { xs: "25px", md: 0 } }}
+            >
+              <Typography variant="subtitle2">Target Family</Typography>
+            </Box>
+            <Box flexGrow={1}>
+              <TextField
+                style={{ color: "grey" }}
+                fullWidth
+                select
+                label={"Choose a Target Family"}
+                variant="outlined"
+                value={values.target_family}
+                error={errors.target_family}
+                helperText={errors.target_family ? "Required Field" : ""}
+                onChange={handleInput("target_family")}
+                InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+              >
+                <MenuItem key={"phenotypic"} value={"phenotypic"}>
+                  Phenotypic
+                </MenuItem>
+                <MenuItem key={"gpcr"} value={"gpcr"}>
+                  GPCR
+                </MenuItem>
+                <MenuItem key={"kinase"} value={"kinase"}>
+                  Kinase
+                </MenuItem>
+                <MenuItem key={"proteinase"} value={"proteinase"}>
+                  Proteinase
+                </MenuItem>
+                <MenuItem key={"nhr"} value={"nhr"}>
+                  NHR
+                </MenuItem>
+              </TextField>
+            </Box>
+          </Box>
+          <Box
+            display="flex"
+            mt={6}
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
+          >
+            <Box
+              mr={4}
+              minWidth="200px"
+              sx={{ marginBottom: { xs: "25px", md: 0 } }}
+            >
+              <Typography variant="subtitle2">Alogrithm</Typography>
+            </Box>
+            <Box flexGrow={1}>
+              <TextField
+                style={{ color: "grey" }}
+                fullWidth
+                select
+                label={"Choose a Federated Algorithm"}
+                variant="outlined"
+                value={values.algo}
+                error={errors.algo}
+                helperText={errors.algo ? "Required Field" : ""}
+                onChange={handleInput("algo")}
+                InputLabelProps={{ shrink: true, style: { color: "grey" } }}
+              >
+                <MenuItem key={"avg"} value={"avg"}>
+                  Federated Average
+                </MenuItem>
+                <MenuItem key={"sgd"} value={"sgd"}>
+                  Federated SGD
+                </MenuItem>
+                <MenuItem key={"prox"} value={"prox"}>
+                  Federated Prox
+                </MenuItem>
+              </TextField>
+            </Box>
           </Box>
         </Box>
         <Box mt={4} textAlign="right" flexGrow={1}>

@@ -50,7 +50,9 @@ const DD = () => {
         }}
       >
         <Box maxWidth="600px" mr={16}>
-          <Typography variant="h2">Why Drug Discovery?</Typography>
+          <Typography variant="h2" data-testid="heading">
+            Why Drug Discovery?
+          </Typography>
           <Typography variant="h4" style={{ marginTop: "50px" }}>
             Drug discovery is the process of the recognition of key chemical
             compounds potential medical agents for treatment purposes of certain

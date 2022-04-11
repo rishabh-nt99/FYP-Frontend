@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { theme } from "./theme";
 import { ThemeProvider } from "@mui/material/styles";
 
-console.log("THEME: ", theme);
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>

@@ -79,64 +79,66 @@ const FL = () => {
         </Box>
       </Box>
       <Box mt="150px">
-        <Box display="flex">
-          <Box mr={4} minWidth="200px">
-            <Typography variant="subtitle2">Central Server</Typography>
+        <Box data-testid="explaination">
+          <Box display="flex">
+            <Box mr={4} minWidth="200px">
+              <Typography variant="subtitle2">Central Server</Typography>
+            </Box>
+            <Box>
+              <Typography variant="body2">
+                There is a central server that coordinates the development
+                process among the various stakeholders. It initially sends out
+                the initial/baseline model (trained on publicly available data.)
+                to all the participating collaborators. This is called the
+                global model.
+              </Typography>
+            </Box>
           </Box>
-          <Box>
-            <Typography variant="body2">
-              There is a central server that coordinates the development process
-              among the various stakeholders. It initially sends out the
-              initial/baseline model (trained on publicly available data.) to
-              all the participating collaborators. This is called the global
-              model.
-            </Typography>
+          <Box display="flex" mt={4}>
+            <Box mr={4} minWidth="200px">
+              <Typography variant="subtitle2">Local Training</Typography>
+            </Box>
+            <Box>
+              <Typography variant="body2">
+                Each collaborator then executes this model using the client side
+                program and trains it on their private data.
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box display="flex" mt={4}>
-          <Box mr={4} minWidth="200px">
-            <Typography variant="subtitle2">Local Training</Typography>
+          <Box display="flex" mt={4}>
+            <Box mr={4} minWidth="200px">
+              <Typography variant="subtitle2">Result Upload</Typography>
+            </Box>
+            <Box>
+              <Typography variant="body2">
+                This updated model/weights/parameters are encrypted and sent to
+                the coordinating server via a secure protocol.
+              </Typography>
+            </Box>
           </Box>
-          <Box>
-            <Typography variant="body2">
-              Each collaborator then executes this model using the client side
-              program and trains it on their private data.
-            </Typography>
+          <Box display="flex" mt={4}>
+            <Box mr={4} minWidth="200px">
+              <Typography variant="subtitle2">Aggregation</Typography>
+            </Box>
+            <Box>
+              <Typography variant="body2">
+                The coordinating server then collects all the updated models
+                from all the collaborators and aggregates them to update the
+                shared global model in a secure and privacy focused manner.
+              </Typography>
+            </Box>
           </Box>
-        </Box>
-        <Box display="flex" mt={4}>
-          <Box mr={4} minWidth="200px">
-            <Typography variant="subtitle2">Result Upload</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">
-              This updated model/weights/parameters are encrypted and sent to
-              the coordinating server via a secure protocol.
-            </Typography>
-          </Box>
-        </Box>
-        <Box display="flex" mt={4}>
-          <Box mr={4} minWidth="200px">
-            <Typography variant="subtitle2">Aggregation</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">
-              The coordinating server then collects all the updated models from
-              all the collaborators and aggregates them to update the shared
-              global model in a secure and privacy focused manner.
-            </Typography>
-          </Box>
-        </Box>
-        <Box display="flex" mt={4}>
-          <Box mr={4} minWidth="200px">
-            <Typography variant="subtitle2">Next Round</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">
-              The global model is sent back to the collaborating participants
-              for further training and the process is repeated till the global
-              model converges.
-            </Typography>
+          <Box display="flex" mt={4}>
+            <Box mr={4} minWidth="200px">
+              <Typography variant="subtitle2">Next Round</Typography>
+            </Box>
+            <Box>
+              <Typography variant="body2">
+                The global model is sent back to the collaborating participants
+                for further training and the process is repeated till the global
+                model converges.
+              </Typography>
+            </Box>
           </Box>
         </Box>
         <Divider classes={{ root: classes.divider }} />
@@ -149,6 +151,7 @@ const FL = () => {
                   fontSize: "24px",
                   fontWeight: "400",
                 }}
+                data-testid="heading"
               >
                 Why FL is Important for Drug Discovery?{" "}
                 <IconButton

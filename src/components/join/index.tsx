@@ -30,10 +30,6 @@ const Join = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleClickColab = () => {};
   return (
     <>
@@ -56,7 +52,9 @@ const Join = () => {
             flexDirection="column"
             justifyContent="space-between"
           >
-            <Typography variant="h2">Join Us!</Typography>
+            <Typography variant="h2" data-testid="joinus">
+              Join Us!
+            </Typography>
             <Typography variant="h4" style={{ marginTop: "50px" }}>
               If you have research data regarding QSAR value prediction (pCIE
               value prediction), using assays and smile data, you can join our
@@ -70,7 +68,7 @@ const Join = () => {
               uploaded to our servers and all the training will be done on your
               local device.
             </Typography>
-            <Box marginTop="87px" textAlign="right">
+            <Box marginTop="87px" textAlign="right" data-testid="buttons">
               <Button
                 variant="contained"
                 style={{ marginRight: "12px" }}
