@@ -20,18 +20,25 @@ const Card: React.FC<CardProps> = ({ title, desc1, desc2, link, image }) => {
           sx={{ mr: { xs: "0", md: "24px" } }}
         >
           <Box>
-            <Typography variant="h6">{title}</Typography>
+            <Typography data-testid="card-title" variant="h6">
+              {title}
+            </Typography>
             <Typography
               variant="subtitle1"
               style={{ marginTop: "10px" }}
               sx={{ maxWidth: { xs: "100%", md: "450px" } }}
+              data-testid="card-desc1"
             >
               {desc1}
             </Typography>
-            {desc2 && <Typography variant="body2">{desc2}</Typography>}
+            {desc2 && (
+              <Typography variant="body2" data-testid="card-desc2">
+                {desc2}
+              </Typography>
+            )}
           </Box>
           <Box sx={{ mt: { xs: "70px", md: "0" } }}>
-            <Link to={link}>
+            <Link to={link} data-testid="card-link">
               {" "}
               <Typography variant="subtitle2">
                 {" "}
@@ -46,6 +53,7 @@ const Card: React.FC<CardProps> = ({ title, desc1, desc2, link, image }) => {
             alt="Card Photograph"
             width="300px"
             height="300px"
+            data-testid="card-image"
           />
         </Box>
       </Box>

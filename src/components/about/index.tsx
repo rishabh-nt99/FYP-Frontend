@@ -30,10 +30,6 @@ const About = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <>
       <Helmet>
@@ -50,7 +46,9 @@ const About = () => {
         }}
       >
         <Box maxWidth="600px" mr={16}>
-          <Typography variant="h2">Who am I?</Typography>
+          <Typography variant="h2" data-testid="whoAmI">
+            Who am I?
+          </Typography>
           <Typography variant="h4" style={{ marginTop: "50px" }}>
             Hi! I am <span style={{ color: "#F46B6F" }}>Rishabh</span>, a final
             year Computer Science student at CityU. This project is a part of my
@@ -76,7 +74,7 @@ const About = () => {
             <Typography variant="subtitle2">Email</Typography>
           </Box>
           <Box>
-            <Typography variant="body2">
+            <Typography variant="body2" data-testid="email">
               rnautiyal2-c@my.cityu.edu.hk
             </Typography>
           </Box>
@@ -90,6 +88,7 @@ const About = () => {
               href="https://www.rishabhnautiyal.com"
               target="_black"
               style={{ textDecoration: "none" }}
+              data-testid="website"
             >
               <Typography variant="body2">www.rishabhnautiyal.com</Typography>
             </a>

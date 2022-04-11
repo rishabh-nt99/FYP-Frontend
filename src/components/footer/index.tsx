@@ -10,7 +10,7 @@ const Footer = () => {
           Rishabh Nautiyal - 2022
         </Typography>
       </Box>
-      <Box display="flex">
+      <Box display="flex" data-testid="links">
         <Box mr={4}>
           <Link to={"/about-me"} style={{ textDecoration: "none" }}>
             <Typography variant="caption">About Me</Typography>
@@ -22,6 +22,7 @@ const Footer = () => {
             style={{ textDecoration: "none" }}
             target="_blank"
             rel="noreferrer"
+            data-testid="github"
           >
             <Typography variant="caption">Github</Typography>
           </a>
@@ -32,6 +33,7 @@ const Footer = () => {
             style={{ textDecoration: "none" }}
             target="_blank"
             rel="noreferrer"
+            data-testid="linkedin"
           >
             <Typography variant="caption">Linkedin</Typography>
           </a>

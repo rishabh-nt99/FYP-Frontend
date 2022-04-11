@@ -35,7 +35,7 @@ const Navbar = () => {
         <Toolbar style={{ padding: "0", margin: "0" }}>
           <Box sx={{ flexGrow: 1 }}>
             <Link to={"/"} style={{ textDecoration: "none" }}>
-              <Typography variant="h6">FL.</Typography>
+              <Typography variant="h6" data-testid="logo">FL.</Typography>
             </Link>
           </Box>
           <Box
@@ -89,6 +89,7 @@ const Navbar = () => {
               }}
               open={Boolean(anchorEl)}
               onClose={handleClose}
+              data-testid="links"
             >
               <MenuItem onClick={handleClose}>
                 <Typography variant="body1">Home</Typography>
