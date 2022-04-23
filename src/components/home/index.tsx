@@ -5,7 +5,6 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Card from "./card";
 import { useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
-import { CakeRounded } from "@mui/icons-material";
 const useStyles = makeStyles((theme) => ({
   downArrow: {
     "& svg": {
