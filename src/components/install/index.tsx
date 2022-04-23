@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Join = () => {
+const Install = () => {
   const classes = useStyles();
 
   let navigate = useNavigate();
@@ -30,11 +30,10 @@ const Join = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleClickColab = () => {};
   return (
     <>
       <Helmet>
-        <title>FL - Join Us</title>
+        <title>User Installation</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
       <Box
@@ -53,48 +52,52 @@ const Join = () => {
             justifyContent="space-between"
           >
             <Typography variant="h2" data-testid="joinus">
-              Join Us!
+              Installation Guide
             </Typography>
             <Typography variant="h4" style={{ marginTop: "50px" }}>
-              If you have research data regarding QSAR value prediction (pCIE
-              value prediction), using assays and smile data, you can join our
-              collaboration efforts to make the industry leading prediction
-              model using advanced Federated Learning.
+              Follow this guide to setup your environment and become a
+              collaborator.
             </Typography>
             <Typography variant="h4" style={{ marginTop: "40px" }}>
-              The method of Federated Learning is completely privacy centric,
-              and your data is completetly safe. Your data won't be shared with
-              any other participants or with us.The data will not even be
-              uploaded to our servers and all the training will be done on your
-              local device.
-            </Typography>
-            <Box marginTop="87px" textAlign="right" data-testid="buttons">
-              <Button
-                variant="contained"
-                style={{ marginRight: "12px" }}
-                onClick={() => changeRoute("/results")}
-              >
-                <Typography style={{ color: "white" }}>
-                  Demo Results!
-                </Typography>
-              </Button>
-              <a
-                href="./files/code.zip"
-                download
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
-                <Button
-                  variant="outlined"
-                  onClick={() => changeRoute("/install")}
-                >
-                  <Typography>Collab!</Typography>
-                </Button>
+              1) Install anaconda if not already install.{" "}
+              <a href="https://docs.anaconda.com/anaconda/install/">
+                Anaconda Installation
               </a>
-            </Box>
+            </Typography>
+            <Typography variant="h4" style={{ marginTop: "20px" }}>
+              2) Create a new conda environment using the command: <br />
+              <span style={{ fontStyle: "italic" }}>
+                "conda create --name flColab"
+              </span>
+            </Typography>
+            <Typography variant="h4" style={{ marginTop: "20px" }}>
+              3) Activate the created env:{" "}
+              <span style={{ fontStyle: "italic" }}>
+                "conda activate flColab"
+              </span>
+            </Typography>
+            <Typography variant="h4" style={{ marginTop: "20px" }}>
+              4) Naviagte to the folder where the files were downloaded and
+              install dependencies from the requirements.txt file.{" "}
+              <a href="https://intellipaat.com/community/31672/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project">
+                Guide.
+              </a>
+            </Typography>
+            <Typography variant="h4" style={{ marginTop: "20px" }}>
+              5) In the client.py file, edit the load_data function to load your
+              own dataset. For details refer to the comments in the file.
+            </Typography>
+            <Typography variant="h4" style={{ marginTop: "20px" }}>
+              6) Finally in anaconda terminal with flColab env, navigate to the
+              folder with client.py file and run the command: <br />
+              <span style={{ fontStyle: "italic" }}>
+                "python client.py" or "python3 client.py"
+              </span>
+            </Typography>
           </Box>
         </Box>
         <Box sx={{ display: { xs: "none", md: "block" } }}>
-          <img src={`./images/join.jpg`} alt="Card Photograph" width="350px" />
+          <img src={`./images/code.jpg`} alt="Card Photograph" width="350px" />
         </Box>
       </Box>
       <Box mt="150px">
@@ -171,4 +174,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export default Install;

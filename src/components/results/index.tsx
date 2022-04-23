@@ -86,7 +86,7 @@ const Results = () => {
       assay_type: values.assay_type,
       target_family: values.target_family,
     };
-    fetch("http://localhost:5000/predict", {
+    fetch("https://fl-fyp.herokuapp.com/predict", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

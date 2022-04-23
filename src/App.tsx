@@ -9,6 +9,7 @@ import Results from "./components/results";
 import About from "./components/about";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import Install from "./components/install";
 import { Box } from "@mui/material";
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/about-me" element={<About />}></Route>
           <Route path="/join-us" element={<Join />}></Route>
           <Route path="/results" element={<Results />}></Route>
+          <Route path="/install" element={<Install />}></Route>
         </Routes>
         <Footer />
       </Router>
