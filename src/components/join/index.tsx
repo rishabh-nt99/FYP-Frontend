@@ -30,7 +30,6 @@ const Join = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleClickColab = () => {};
   return (
     <>
       <Helmet>
