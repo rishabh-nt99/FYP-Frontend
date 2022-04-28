@@ -82,7 +82,7 @@ const Home = () => {
             A Federated Learning Based
           </Typography>
           <Typography variant="h3" data-testid="sub-heading2">
-            Collaborative effort drug discovery effort.
+            Collaboration Tool for Drug Discovery Efforts.
           </Typography>
         </Box>
       </Box>
